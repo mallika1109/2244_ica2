@@ -36,7 +36,7 @@ pipeline {
 
         stage('Testing') {
             steps {
-                sh 'curl -I http://184.72.189.93:8081 || true' // Ensuring it won't fail the build
+                sh 'curl -I http://34.235.139.150:8081 || true' // Ensuring it won't fail the build
             }
         }
     }
