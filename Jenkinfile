@@ -28,8 +28,8 @@ pipeline {
                     sh '''
                         docker login -u ${USERNAME} -p ${PASSWORD}
                         docker push mallika1109/millioniumfalcon:latest
-                        docker push mallika1109/millioniumfalcon:develop-${env.BUILD_ID}
                     '''
+                    sh "docker push mallika1109/millioniumfalcon:develop-${env.BUILD_ID}"
                 }
             }
         }
