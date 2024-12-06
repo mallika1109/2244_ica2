@@ -15,9 +15,9 @@ pipeline {
 
         stage('Build and run docker image') {
             steps {
-                sh 'docker build -t 2244_ica2 .'
-                sh "docker tag 2244_ica2:latest 2244_ica2:develop-${env.BUILD_ID}" 
-                sh 'docker run -d -p 8081:80 2244_ica2:latest'
+                sh 'docker build -t mallika1109/millioniumfalcon .'
+                sh "docker tag mallika1109/millioniumfalcon:latest mallika1109/millioniumfalcon:develop-${env.BUILD_ID}" 
+                sh 'docker run -d -p 8081:80 mallika1109/millioniumfalcon:latest'
             } 
         }
 
@@ -27,8 +27,8 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub-auth', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     sh '''
                         docker login -u ${USERNAME} -p ${PASSWORD}
-                        docker push 2244_ica2:latest
-                        docker push 2244_ica2:develop-${env.BUILD_ID}
+                        docker push mallika1109/millioniumfalcon:latest
+                        docker push mallika1109/millioniumfalcon:develop-${env.BUILD_ID}
                     '''
                 }
             }
