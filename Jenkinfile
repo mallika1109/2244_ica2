@@ -3,8 +3,8 @@ pipeline {
     stages {
         stage('Build and run docker image') {
             steps {
-                sh 'sudo docker pull mallika1109/millioniumfalcon:latest'
-                sh 'sudo docker run -d -p 8082:80 mallika1109/millioniumfalcon:latest'
+                sh 'docker pull mallika1109/millioniumfalcon:latest'
+                sh 'docker run -d -p 8082:80 mallika1109/millioniumfalcon:latest'
             } 
         }
 
